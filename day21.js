@@ -27,6 +27,13 @@ numbers.forEach((button) => {
 
 operatorBtn.forEach((button) => {
   button.addEventListener("click", () => {
+    // If we already have a full equation typed out, calculate it first!
+    if (firstNumber !== "" && secondNumber !== "") {
+      let result = calculate();
+      display.textContent = result;
+      firstNumber = result.toString();
+      secondNumber = "";
+    }
     if (firstNumber !== "") {
       operator = button.textContent;
     }
