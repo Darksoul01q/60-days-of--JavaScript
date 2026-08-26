@@ -108,7 +108,7 @@ decimal.addEventListener("click", () => {
 });
 
 //Delete
-let Delete = Document.getElementById("delete");
+let Delete = document.getElementById("delete");
 
 Delete.addEventListener("click", () => {
   if (operator === "") {
