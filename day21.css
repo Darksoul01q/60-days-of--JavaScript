@@ -1,6 +1,6 @@
-/* day21.css */
+/* style.css */
 
-/* Reset default styles and set a modern font */
+/* Reset default browser styling and set a modern font */
 * {
   margin: 0;
   padding: 0;
@@ -8,123 +8,111 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Center everything beautifully on the page */
+/* Center the calculator viewport beautifully */
 body {
-  background-color: #1e1e24;
+  background-color: #0f172a;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   min-height: 100vh;
-  color: #ffffff;
 }
 
-/* Style the main title */
-h1 {
-  margin-bottom: 20px;
-  font-weight: 400;
-  letter-spacing: 2px;
-  color: #a5a5a5;
+/* Main glassmorphism calculator chassis */
+.calculator {
+  background-color: #1e293b;
+  padding: 24px;
+  border-radius: 24px;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.3),
+    0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  width: 350px;
 }
 
-/* Main calculator container */
-#calculator {
-  background-color: #000000;
-  padding: 25px;
-  border-radius: 30px;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
-  width: 340px;
-}
-
-/* Calculator screen display */
+/* Digital readout screen display */
 #display {
-  width: 100%;
-  height: 80px;
-  background-color: transparent;
-  border: none;
-  color: #ffffff;
-  font-size: 2.5rem;
+  background-color: #0f172a;
+  color: #38bdf8;
+  font-size: 2.75rem;
   text-align: right;
-  padding: 10px;
+  padding: 16px 20px;
+  border-radius: 12px;
   margin-bottom: 20px;
-  outline: none;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
-/* Grid layout for buttons (4 columns) */
-#buttons {
+/* Button grid framework layout */
+.buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 }
 
-/* Base button styles */
+/* Global button styling rules */
 button {
-  height: 65px;
-  width: 65px;
-  border-radius: 50%;
+  height: 64px;
   border: none;
+  border-radius: 12px;
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition:
-    background-color 0.2s,
-    transform 0.1s;
+  transition: all 0.15s ease;
 }
 
-/* Active press animation */
+/* Interactive click click response */
 button:active {
   transform: scale(0.95);
 }
 
-/* Number keys styling */
+/* Color definitions for number inputs */
 .number,
-.decimal {
-  background-color: #333333;
-  color: #ffffff;
+#decimal {
+  background-color: #334155;
+  color: #f8fafc;
 }
 
 .number:hover,
-.decimal:hover {
-  background-color: #444444;
+#decimal:hover {
+  background-color: #475569;
 }
 
-/* Main math operators (+, -, *, /, %) styling */
+/* Color definitions for mathematical operators */
 .operator {
-  background-color: #ff9f0a;
+  background-color: #f59e0b;
   color: #ffffff;
 }
 
 .operator:hover {
-  background-color: #cc7f08;
+  background-color: #d97706;
 }
 
-/* Functional keys (AC, DEL) styling */
-.clear,
-.delete {
-  background-color: #a5a5a5;
-  color: #000000;
-}
-
-.clear:hover,
-.delete:hover {
-  background-color: #8e8e8e;
-}
-
-/* Make the 0 key wider to span two columns nicely */
-button:nth-last-child(3) {
-  grid-column: span 2;
-  width: 100%;
-  border-radius: 35px;
-  padding-left: 25px;
-  text-align: left;
-}
-
-/* Equal key styling */
-.equal {
-  background-color: #ff9f0a;
+/* Styling for clear/reset key */
+#clear {
+  background-color: #ef4444;
   color: #ffffff;
 }
 
-.equal:hover {
-  background-color: #cc7f08;
+#clear:hover {
+  background-color: #dc2626;
+}
+
+/* Styling for delete/backspace key */
+#delete {
+  background-color: #64748b;
+  color: #ffffff;
+}
+
+#delete:hover {
+  background-color: #475569;
+}
+
+/* Makes the equals key span across the remaining 2 columns */
+#equals {
+  grid-column: span 2;
+  background-color: #10b981;
+  color: #ffffff;
+}
+
+#equals:hover {
+  background-color: #059669;
 }
