@@ -106,3 +106,16 @@ decimal.addEventListener("click", () => {
     }
   }
 });
+
+//Delete
+let Delete = Document.getElementById("delete");
+
+Delete.addEventListener("click", () => {
+  if (operator === "") {
+    firstNumber = firstNumber.slice(0, -1);
+    display.textContent = firstNumber || "0"; // Show 0 if empty
+  } else {
+    secondNumber = secondNumber.slice(0, -1);
+    display.textContent = secondNumber || "0";
+  }
+});
