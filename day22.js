@@ -20,4 +20,12 @@ and first will be executed , then 2 and lasty three
 
 // challenge 4
 
-/* */
+/* 
+the output will be A>B>C
+*/
+
+// challenge 5
+
+/* 
+ofcoures it will rise an error for sure , cuz the variable is declared after the print statement due to that there will be a error
+*/
