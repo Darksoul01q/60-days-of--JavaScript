@@ -172,3 +172,40 @@ console.log(car3);
 car1.start();
 car2.start();
 car3.start();
+
+//Assignment 5
+
+console.log(Object.getPrototypeOf(car1));
+console.log(Object.getPrototypeOf(Object.getPrototypeOf(car1)));
+
+// object.getprototype of is showing the prototype the object car1 , if again did that it shows null, cuz the end of the prototype chain is null,
+
+//Mentor Challenge
+
+function Employee(name, role, salary) {
+  this.name = name;
+  this.role = role;
+  this.salary = salary;
+}
+
+Employee.prototype.introduce = function () {
+  console.log(`Hi, i am ${this.name} a aspiring ${this.role} `);
+};
+
+Employee.prototype.getAnnualSalary = function () {
+  console.log(`The Annual Salary of ${this.name} is : ${this.salary}`);
+};
+
+Employee.prototype.increaseSalary = function (percentage) {
+  console.log(
+    `The salary of employee ${this.name} is increased from ${this.salary} to : ${(this.salary += this.salary / percentage)}`,
+  );
+};
+
+const employee1 = new Employee("Arun", "MERN Developer", 600000);
+
+const employee2 = new Employee("Rahul", "Frontend Developer", 500000);
+
+employee1.introduce();
+employee1.getAnnualSalary();
+employee1.increaseSalary(10);
