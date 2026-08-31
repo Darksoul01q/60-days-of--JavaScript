@@ -131,3 +131,39 @@ const student = {
 };
 
 student.introduce();
+
+// Assigment 2
+
+const user = {
+  name: "Arun",
+  showName: function () {
+    console.log(this.name);
+  },
+};
+
+const test = user.showName;
+test();
+
+/* 
+first when i used user.showname i got arun as output , after got undefined when i used test(),cuz while user.showname the js engine will see the 
+. notation and the this will inherit user and print user.name so i got arun as output , but after that we call the showname function indeirectly by test
+not using the user.showname directly , so the this keyword cannot inherit and inherint the window object due to that i got undefined as the output 
+*/
+
+//Assignment 3
+
+function Car(brand, model, year) {
+  this.brand = brand;
+  this.model = model;
+  this.year = year;
+}
+
+let car1 = new Car("Toyota", "camry", 2025);
+let car2 = new Car("Ford", "Mustang", 1967);
+let car3 = new Car("Tesla", "Model Y", 2024);
+
+console.log(car1);
+console.log(car2);
+console.log(car3);
+
+//Assignment 4
