@@ -150,13 +150,17 @@ first when i used user.showname i got arun as output , after got undefined when 
 not using the user.showname directly , so the this keyword cannot inherit and inherint the window object due to that i got undefined as the output 
 */
 
-//Assignment 3
+//Assignment 3 and 4
 
 function Car(brand, model, year) {
   this.brand = brand;
   this.model = model;
   this.year = year;
 }
+
+Car.prototype.start = function () {
+  console.log(`The ${this.brand} model ${this.model} started in ${this.year}`);
+};
 
 let car1 = new Car("Toyota", "camry", 2025);
 let car2 = new Car("Ford", "Mustang", 1967);
@@ -165,5 +169,6 @@ let car3 = new Car("Tesla", "Model Y", 2024);
 console.log(car1);
 console.log(car2);
 console.log(car3);
-
-//Assignment 4
+car1.start();
+car2.start();
+car3.start();
