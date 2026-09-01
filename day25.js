@@ -123,3 +123,20 @@ const student1 = new Student("Anbu", 21, "Mern Stack Development");
 student1.introduce();
 
 //Assignmnet 2
+
+class Car {
+  constructor(brand, model, year) {
+    this.brand = brand;
+    this.model = model;
+    this.year = year;
+  }
+
+  start() {
+    console.log(`${this.brand} ${this.model} Started`);
+  }
+}
+
+const car1 = new Car("Toyota", "campry", 2026);
+car1.start();
+
+//Assignment 3
