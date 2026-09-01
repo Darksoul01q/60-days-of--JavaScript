@@ -139,7 +139,27 @@ class Car {
 const car1 = new Car("Toyota", "campry", 2026);
 car1.start();
 
-//Assignment 3
+// Assignment 3
+class Rectangle {
+  constructor(width, height) {
+    this.width = width;
+    this.height = height;
+  }
+
+  getArea() {
+    console.log(`the are of the rectangle is : ${this.width * this.height}`);
+  }
+
+  getPerimeter() {
+    console.log(`perimeter : ${2 * (this.width + this.height)}`);
+  }
+}
+
+const sample1 = new Rectangle(20, 10);
+sample1.getArea();
+sample1.getPerimeter();
+
+//Assignment 4
 
 class Bank {
   constructor(balance) {
@@ -151,6 +171,9 @@ class Bank {
   }
 
   withdraw(remove) {
+    if (remove > this.balance) {
+      console.log("Insufficient Balance");
+    }
     this.balance -= remove;
   }
 
