@@ -187,3 +187,55 @@ customer1.deposit(1000);
 customer1.showBalance();
 customer1.withdraw(5000);
 customer1.showBalance();
+
+//Assignment 5
+
+class Calculator {
+  add(a, b) {
+    return a + b;
+  }
+  sub(a, b) {
+    return a - b;
+  }
+  mul(a, b) {
+    return a * b;
+  }
+  div(a, b) {
+    return a / b;
+  }
+}
+
+const calc = new Calculator();
+console.log(calc.add(10, 20));
+console.log(calc.sub(10, 20));
+console.log(calc.mul(10, 20));
+console.log(calc.div(10, 20));
+
+//Mentor Challenge
+
+class Employee {
+  constructor(name, role, salary) {
+    this.name = name;
+    this.role = role;
+    this.salary = salary;
+  }
+
+  introduce() {
+    console.log(`Hi, i am ${this.name} a aspiring ${this.role} `);
+  }
+
+  getAnnualSalary() {
+    console.log(`The Annual Salary of ${this.name} is : ${this.salary}`);
+  }
+
+  increaseSalary(percentage) {
+    console.log(
+      `The salary of employee ${this.name} is increased from ${this.salary} to : ${(this.salary += this.salary / percentage)}`,
+    );
+  }
+}
+
+const employee1 = new Employee("Arun", "Mern Stack Developer", 60000);
+employee1.introduce();
+employee1.getAnnualSalary();
+employee1.increaseSalary(10);
