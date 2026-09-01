@@ -101,3 +101,25 @@ animal2.speak();
 output : Dog makes a sound, Cat makes a sound , no both are different object i guess
 
 */
+
+//Assignment 1
+
+class Student {
+  constructor(name, age, course) {
+    this.name = name;
+    this.age = age;
+    this.course = course;
+  }
+
+  introduce() {
+    console.log(`My name is ${this.name}`);
+    console.log(`I am ${this.age} years old`);
+    console.log(`I am learing ${this.course}`);
+  }
+}
+
+const student1 = new Student("Anbu", 21, "Mern Stack Development");
+
+student1.introduce();
+
+//Assignmnet 2
