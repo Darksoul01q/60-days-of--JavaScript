@@ -140,3 +140,27 @@ const car1 = new Car("Toyota", "campry", 2026);
 car1.start();
 
 //Assignment 3
+
+class Bank {
+  constructor(balance) {
+    this.balance = balance;
+  }
+
+  deposit(add) {
+    this.balance += add;
+  }
+
+  withdraw(remove) {
+    this.balance -= remove;
+  }
+
+  showBalance() {
+    console.log(`${this.balance}`);
+  }
+}
+
+const customer1 = new Bank(20000);
+customer1.deposit(1000);
+customer1.showBalance();
+customer1.withdraw(5000);
+customer1.showBalance();
