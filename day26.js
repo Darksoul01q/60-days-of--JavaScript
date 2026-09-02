@@ -239,3 +239,74 @@ class Developer extends Employee {
 let emp1 = new Developer("arun", "Mern");
 
 emp1.introduce();
+
+// mini project ( library managemnet )
+class LibraryItem {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+
+  displayInfo() {
+    console.log(`The ${this.title} is written by ${this.author}`);
+  }
+}
+
+class Book extends LibraryItem {
+  constructor(title, author, pages) {
+    super(title, author);
+    this.pages = pages;
+  }
+
+  read() {
+    console.log(`The ${this.title} has ${this.pages} pages`);
+  }
+}
+
+class Magazine extends LibraryItem {
+  constructor(title, author, issueNumber) {
+    super(title, author);
+    this.issueNumber = issueNumber;
+  }
+
+  showIssue() {
+    console.log(
+      `The issue number of ${this.title} Magazine is : ${this.issueNumber} `,
+    );
+  }
+}
+
+class Library {
+  constructor() {
+    this.items = [];
+  }
+
+  addItem(item) {
+    this.items.push(item);
+  }
+
+  showItems() {
+    this.items.forEach((value) => {
+      value.displayInfo();
+    });
+  }
+}
+
+let book1 = new Book("Pride and Prejudice ", "Jane Austen", 230);
+let magazine1 = new Magazine(
+  "Kaiser, D., & Creager",
+  "The right way to get it wrong. Scientific American",
+  306,
+);
+let book2 = new Book("The Hobbit", "J.R.R. Tolkien", 390);
+book1.displayInfo();
+book1.read();
+magazine1.displayInfo();
+magazine1.showIssue();
+
+let item = new Library();
+
+item.addItem(book1);
+
+item.addItem(book2);
+item.showItems();
