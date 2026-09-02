@@ -213,3 +213,29 @@ person.fav();
 // used own example
 
 //assignment 5
+
+class Employee {
+  constructor(name, role) {
+    this.name = name;
+    this.role = role;
+  }
+
+  introduce() {
+    console.log(`Hello , I am ${this.name}`);
+  }
+}
+
+class Developer extends Employee {
+  constructor(name, role) {
+    super(name, role);
+  }
+
+  introduce() {
+    super.introduce();
+    console.log(`i am learning ${this.role}`);
+  }
+}
+
+let emp1 = new Developer("arun", "Mern");
+
+emp1.introduce();
