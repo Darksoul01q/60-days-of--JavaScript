@@ -127,4 +127,124 @@ step1(() => {
 });
 
 output : step1 , step 2, step 3, step 4 and all completed 
+it is called callback hell cuz there are many call back function depends on its previous callback functions 
+it would take around 4 to 5 sec to execute completly
+if there was 10 dependent steps it would take 10 to 11 secs to completly execute
 */
+
+//Assignments
+
+//Assignment 1
+
+function greet(name, callback) {
+  console.log(`Hello ${name}`);
+  callback();
+}
+
+greet("Arun", () => {
+  console.log(`Welcome to javascript`);
+});
+
+//Assignment 2
+
+function calculate(a, b, operation) {
+  let result = a * b;
+  operation(result);
+}
+
+calculate(10, 20, (result) => {
+  console.log(`${result}`);
+});
+
+// while addition operation got the expected output : 30 , and got 200 while multiplycation
+
+//Assignment 3
+
+function processData(callback) {
+  console.log(`Processing...`);
+
+  setTimeout(() => {
+    console.log(`processing Completed`);
+    callback();
+  }, 2000);
+}
+
+processData(() => {
+  console.log(`Callback Executed`);
+});
+
+//Assignment 4
+
+function login(callback) {
+  setTimeout(() => {
+    console.log(`Login Successful`);
+    callback();
+  }, 1000);
+}
+function getProfile(callback) {
+  setTimeout(() => {
+    console.log(`Profile loaded`);
+    callback();
+  }, 1000);
+}
+function getPosts() {
+  setTimeout(() => {
+    console.log(`Post Loaded`);
+  }, 1000);
+}
+
+login(() => {
+  getProfile(() => {
+    getPosts();
+  });
+});
+
+//Assignment 5
+
+function registerUser(callback) {
+  setTimeout(() => {
+    console.log(`User registered`);
+    callback();
+  }, 1000);
+}
+function loginUser(callback) {
+  setTimeout(() => {
+    console.log(`User logged in`);
+    callback();
+  }, 1000);
+}
+function getProfile(callback) {
+  setTimeout(() => {
+    console.log(`Profile loaded`);
+    callback();
+  }, 1000);
+}
+function getCourses(callback) {
+  setTimeout(() => {
+    console.log(`Courses loaded`);
+    callback();
+  }, 1000);
+}
+function getProgress(callback) {
+  setTimeout(() => {
+    console.log(`Progress loaded`);
+    callback();
+  }, 1000);
+}
+function showDashboard() {
+  setTimeout(() => {
+    console.log(`Dashboard displayed`);
+  }, 1000);
+}
+
+registerUser(() => {
+  loginUser(() => {
+    getProfile(() => {
+      getCourses(() => {
+        getProgress(() => {
+          showDashboard();
+        });
+      });
+    });
+  });
+});
