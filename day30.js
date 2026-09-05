@@ -130,3 +130,159 @@ i think 10 will get printed and then reject get triggered , but have a doubt as 
 */
 
 //Assignmnet 1
+
+function number() {
+  return new Promise((resolve) => {
+    resolve(50);
+  });
+}
+
+async function getNumber() {
+  let num = await number();
+  console.log(`Received Number : ${num}`);
+}
+
+getNumber();
+
+//Assignment 2
+
+function checkAge(age) {
+  return new Promise((resolve, reject) => {
+    if (age >= 18) {
+      resolve(`Access Granted`);
+    } else {
+      reject(`Access Denied`);
+    }
+  });
+}
+
+async function check() {
+  try {
+    console.log(`Verfiying age...`);
+
+    let ageCheck = await checkAge(19);
+    console.log(ageCheck);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+check();
+
+//Assignment 3
+
+function downloadFile() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      let random = Math.floor(Math.random() * 9) + 1;
+
+      if (random > 5) {
+        resolve(`Download Successful`);
+      } else if (random <= 5) {
+        reject(`Download failed`);
+      }
+    }, 2000);
+  });
+}
+
+async function download() {
+  try {
+    console.log(`Download started`);
+    const dawn = await downloadFile();
+    console.log(dawn);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    console.log(`Download process finished`);
+  }
+}
+
+download();
+
+//Assignment 4
+
+function fetchStudent(student) {
+  return new Promise((resolve) => {
+    resolve(student);
+  });
+}
+
+function fetchMarks() {
+  return new Promise((resolve) => {
+    resolve(84);
+  });
+}
+
+function calculateGrade() {
+  return new Promise((resolve) => {
+    resolve(`A`);
+  });
+}
+
+async function markSheet() {
+  try {
+    console.log(`Checking result`);
+
+    let student = await fetchStudent("Arun");
+    console.log(`Name : ${student}`);
+
+    let marks = await fetchMarks();
+    console.log(`Mark : ${marks}`);
+
+    let grade = await calculateGrade();
+    console.log(`Grade : ${grade}`);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    console.log(`Result processing completed`);
+  }
+}
+
+markSheet();
+
+//Assignment 5
+
+function authenticateUser(username, password) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (username === `arun` && password === 123) {
+        resolve(`Login successful`);
+      } else {
+        reject("Invalid credentials");
+      }
+    }, 1000);
+  });
+}
+
+function fetchUserProfile() {
+  return new Promise((resolve) => {
+    resolve({
+      name: "Arun",
+      role: "Developer",
+    });
+  });
+}
+
+function fetchUserPermissions() {
+  return new Promise((resolve) => {
+    resolve(["read", "write"]);
+  });
+}
+
+async function login() {
+  try {
+    let auth = await authenticateUser(`arun`, 123);
+    console.log(auth);
+    let profile = await fetchUserProfile();
+    console.log(`Name : ${profile.name}`);
+    console.log(`Role : ${profile.role}`);
+    let permission = await fetchUserPermissions();
+    console.log(permission);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    console.log(`Authentication process completed`);
+  }
+}
+
+login();
