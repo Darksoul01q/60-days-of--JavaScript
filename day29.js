@@ -194,3 +194,127 @@ fetchUser()
   });
 
 //Assignment 5
+
+function placeOrder(order) {
+  return new Promise((resolve, reject) => {
+    let lap = true;
+    setTimeout(() => {
+      if (lap) {
+        resolve(`Your order has successfully placed: ${order}`);
+      } else {
+        reject(`Your order cannot be placed: out of stock`);
+      }
+    }, 1000);
+  });
+}
+
+function checkPayment(previousStatus) {
+  return new Promise((resolve, reject) => {
+    let pay = true;
+    setTimeout(() => {
+      if (pay) {
+        resolve(`${previousStatus} -> Payment successful`);
+      } else {
+        reject(`Insufficient balance`);
+      }
+    }, 1000);
+  });
+}
+
+function prepareOrder(previousStatus) {
+  return new Promise((resolve, reject) => {
+    let order = true;
+    setTimeout(() => {
+      if (order) {
+        resolve(`${previousStatus} -> Order prepared for delivery`);
+      } else {
+        reject(`Order cancelled and refund available`);
+      }
+    }, 1000);
+  });
+}
+
+function shipOrder(previousStatus) {
+  return new Promise((resolve, reject) => {
+    let ship = true;
+    setTimeout(() => {
+      if (ship) {
+        resolve(`${previousStatus} -> Order has been shipped!`);
+      } else {
+        reject(`Order cancelled due to shipping issue. Refund available.`);
+      }
+    }, 1000);
+  });
+}
+
+placeOrder("laptop")
+  .then((orderStatus) => {
+    console.log(orderStatus);
+    return checkPayment(orderStatus);
+  })
+  .then((paymentStatus) => {
+    console.log(paymentStatus);
+    return prepareOrder(paymentStatus);
+  })
+  .then((prepStatus) => {
+    console.log(prepStatus);
+    return shipOrder(prepStatus);
+  })
+  .then((finalShippingStatus) => {
+    console.log(finalShippingStatus);
+  })
+  .catch((error) => {
+    console.log(" Process Halted:", error);
+  })
+  .finally(() => {
+    console.log(`Order process finished`);
+  });
+
+// mentor challenge
+
+function verifyAccount() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ id: 101, verified: true });
+    }, 1000);
+  });
+}
+
+function loadPermissions(user) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (user.verified) {
+        resolve(["read", "write"]);
+      } else {
+        reject("Account not verified");
+      }
+    }, 1000);
+  });
+}
+
+function checkAdmin(permissions) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(permissions.includes("admin"));
+    }, 1000);
+  });
+}
+
+verifyAccount()
+  .then((user) => {
+    console.log(user);
+    return loadPermissions(user);
+  })
+  .then((userArray) => {
+    console.log(userArray);
+    return checkAdmin(userArray);
+  })
+  .then((adminStatus) => {
+    console.log(adminStatus);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    console.log(`process completed`);
+  });
