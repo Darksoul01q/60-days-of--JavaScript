@@ -106,3 +106,91 @@ getData()
     block , without them  those will not get executed 
 
 */
+
+// Assignment 1
+
+function checkTemperature(temp) {
+  return new Promise((resolve, reject) => {
+    if (temp <= 30) {
+      resolve("Temperature is Normal");
+    } else {
+      reject("Temperature is high");
+    }
+  });
+}
+
+checkTemperature(29)
+  .then((temp) => {
+    console.log(`${temp}`);
+  })
+  .catch((temp) => {
+    console.log(`${temp}`);
+  });
+
+//Assignment 2
+
+function checkStock(quantity) {
+  return new Promise((resolve, reject) => {
+    if (quantity > 0) {
+      resolve(`Stocks available : ${quantity}`);
+    } else if (quantity === 0) {
+      reject(`Stocks Unavailable : ${quantity}`);
+    }
+  });
+}
+
+checkStock(23)
+  .then((stocks) => {
+    console.log(stocks);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    console.log(`Stock check completed`);
+  });
+
+//Assignment 3
+
+Promise.resolve(8)
+  .then((n) => {
+    return n + 12;
+  })
+  .then((n) => {
+    return n * 3;
+  })
+  .then((n) => {
+    return n - 10;
+  })
+  .then((n) => {
+    console.log(n);
+  });
+
+//Assignment 4
+
+function fetchUser() {
+  return new Promise((resolve, reject) => {
+    let random = Math.floor(Math.random() * 9) + 1;
+
+    setTimeout(() => {
+      if (random < 5) {
+        resolve(`User data received`);
+      } else if (random >= 5) {
+        reject(`Server error`);
+      }
+    }, 2000);
+  });
+}
+
+fetchUser()
+  .then((Success) => {
+    console.log(Success);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    console.log(`Request completed`);
+  });
+
+//Assignment 5
