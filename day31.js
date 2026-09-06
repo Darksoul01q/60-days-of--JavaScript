@@ -88,3 +88,114 @@ into a variable called restored
 
 output : first console log will print the json , second console log will print javasricpt
 */
+
+//Assignments
+
+//Assignment 1
+
+const product = {
+  name: "Mic",
+  price: 300,
+  category: "Electronics",
+  instock: 2,
+};
+
+const convert = JSON.stringify(product);
+console.log(convert);
+console.log(typeof convert);
+
+//Assignment 2
+
+const studentJSON = '{"name":"Rahul","marks":87,"passed":true}';
+
+const result = JSON.parse(studentJSON);
+console.log(`Name : ${result.name}`);
+console.log(`Mark : ${result.marks}`);
+
+if (result.passed) {
+  console.log(`The student ${result.name} : has passed the exam`);
+} else {
+  console.log(`The student ${result.name} : has failed the exam`);
+}
+
+//Assignment 3
+const user = {
+  name: "Robert",
+  contact: {
+    mobile: 1023654789,
+    email: "sample@gmail.com",
+  },
+  skills: ["java", "python", "javaScript"],
+};
+
+const convertUser = JSON.stringify(user);
+const reverseUser = JSON.parse(convertUser);
+console.log(reverseUser.contact.email);
+console.log(reverseUser.skills[1]);
+
+//Assignment 4
+
+const response = `{
+  "status": "success",
+  "data": {
+    "id": 101,
+    "name": "Arun",
+    "role": "MERN Developer",
+    "skills": ["JavaScript", "React", "Node.js"]
+  }
+}`;
+
+let convertResponse = JSON.parse(response);
+
+console.log(convertResponse.status);
+console.log(convertResponse.data.name);
+console.log(convertResponse.data.role);
+console.log(convertResponse.data.skills[0]);
+console.log(`Number of skills : ${convertResponse.data.skills.length}`);
+
+//Assignment 5
+
+const serverResponse = `{
+  "success": true,
+  "user": {
+    "id": 101,
+    "name": "Arun",
+    "role": "MERN Developer",
+    "projects": [
+      {
+        "name": "SkillSwap",
+        "type": "MERN"
+      },
+      {
+        "name": "StriveNet",
+        "type": "MERN"
+      }
+    ]
+  }
+}`;
+
+//step 1
+const serverReverse = JSON.parse(serverResponse);
+
+//step 2
+console.log(`Request Successful : ${serverReverse.success}`);
+console.log(`Name : ${serverReverse.user.name}`);
+console.log(`Role : ${serverReverse.user.role}`);
+
+//step 3
+
+serverReverse.user.projects.forEach((value) => {
+  console.log(`Project : ${value.name}`);
+});
+
+//step 4
+
+console.log(`No of projects : ${serverReverse.user.projects.length}`);
+
+//step 5
+
+const jsonData = JSON.stringify(serverReverse);
+
+//Step 6
+
+console.log(jsonData);
