@@ -1,26 +1,22 @@
-// Step 1: Create an async function
-async function displayUserProfile() {
-  try {
-    const url = "https://typicode.com";
+//Mini challenges
 
-    // Step 2: Make the secure connection to the web server
-    console.log("Connecting to the server...");
-    const response = await fetch(url);
+// challenge 1
 
-    // Step 3: Collect the streaming data packets and turn them into a JS Object
-    const userObj = await response.json();
+/* 
+async function checkAPI() {
 
-    // Step 4: Display Data!
-    console.log("\n--- Data Successfully Received! ---");
-    console.log(`User ID: ${userObj.id}`);
-    console.log(`Full Name: ${userObj.name}`);
-    console.log(`Email Address: ${userObj.email}`);
-    console.log(`City: ${userObj.address.city}`); // Accessing a nested object property!
-  } catch (error) {
-    // If the server drops or you lose internet, this block catches the failure
-    console.log("Could not fetch data:", error);
-  }
+    const response = await fetch(
+        "https://jsonplaceholder.typicode.com/posts/3"
+    );
+
+    console.log(response.status);
+    console.log(response.ok);
 }
 
-// Execute our function
-displayUserProfile();
+checkAPI();
+*/
+
+/* 
+first console log will print the status of the api connection succed or failed through three digit codes  eg : 200 , 201 , 404 ,500 etc...
+second console log will print true or  false based on the api status , success = true ( 200 to 299), failure = false (404 , 500)
+*/
