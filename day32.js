@@ -134,3 +134,97 @@ call stack and execute other codes E and when it is empty it again called back b
 await repeat the same process once again and print D
 
 */
+
+//Assignments
+
+//Assignment 1
+
+async function getPost() {
+  try {
+    console.log(`fetching a post...`);
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/posts/12",
+    );
+
+    if (!response.ok) {
+      throw new Error(`post not fonud`);
+    }
+
+    const post = await response.json();
+
+    console.log(`Title : ${post.title}`);
+
+    console.log(`body : ${post.body}`);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+getPost();
+
+//fetched a post and handled it
+
+// assignment 2
+
+async function user() {
+  try {
+    console.log(`fetching to get a user...`);
+
+    const userResponse = await fetch(
+      "https://jsonplaceholder.typicode.com/users/6",
+    );
+
+    if (!userResponse.ok) {
+      throw new Error(`user not fonud`);
+    }
+
+    const userObject = await userResponse.json();
+
+    console.log(`Name : ${userObject.name}`);
+    console.log(`Username : ${userObject.username}`);
+    console.log(`Email : ${userObject.email}`);
+    console.log(`City : ${userObject.address.city}`);
+  } catch (error) {
+    console.log(`${error}`);
+  }
+}
+
+user();
+
+//Assignment 3
+
+async function posts() {
+  try {
+    console.log(`Fetching posts...`);
+    const postResponse = await fetch(
+      "https://jsonplaceholder.typicode.com/posts?_limit=10",
+    );
+
+    if (!postResponse.ok) {
+      throw new Error(`Post not fount`);
+    }
+
+    const postConvert = await postResponse.json();
+
+    let div = document.getElementById("posts");
+    postConvert.forEach((element) => {
+      let div1 = document.createElement("div");
+      let div2 = document.createElement("div");
+      let div3 = document.createElement("div");
+      let divAll = document.createElement("div");
+      div1.append(`Id : ${element.id}`);
+      div2.append(`Title : ${element.title}`);
+      div3.append(`Body : ${element.body}`);
+
+      divAll.append(div1);
+      divAll.append(div2);
+      divAll.append(div3);
+
+      div.append(divAll);
+    });
+  } catch (error) {
+    console.log(`${error}`);
+  }
+}
+
+posts();
