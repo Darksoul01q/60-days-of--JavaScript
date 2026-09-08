@@ -138,7 +138,7 @@ await repeat the same process once again and print D
 //Assignments
 
 //Assignment 1
-/* 
+
 async function getPost() {
   try {
     console.log(`fetching a post...`);
@@ -160,12 +160,12 @@ async function getPost() {
   }
 }
 
-getPost(); */
+getPost();
 
 //fetched a post and handled it
 
 // assignment 2
-/* 
+
 async function user() {
   try {
     console.log(`fetching to get a user...`);
@@ -189,11 +189,11 @@ async function user() {
   }
 }
 
-user(); */
+user();
 
 //Assignment 3
 
-/* async function posts() {
+async function posts() {
   try {
     console.log(`Fetching posts...`);
     const postResponse = await fetch(
@@ -227,10 +227,10 @@ user(); */
   }
 }
 
-posts(); */
+posts();
 
 //Assignment 4
-/* let input = document.getElementById("userId");
+let input = document.getElementById("userId");
 let btn = document.getElementById("search");
 let result = document.getElementById("result");
 
@@ -268,15 +268,15 @@ async function postViewer() {
 
 btn.addEventListener("click", () => {
   postViewer();
-}); */
+});
 
 //Assignment 5
 
-/* let grp = document.getElementById("btn1");
+let grp = document.getElementById("btn1");
 let box = document.getElementById("box");
 
 async function generateRandomPost() {
-  box.innerHTML = "";
+  box.innerHTML = "<p>Loading...</p>";
   try {
     let random = Math.floor(Math.random() * 99) + 1;
     let response = await fetch(
@@ -306,7 +306,7 @@ async function generateRandomPost() {
 
 grp.addEventListener("click", () => {
   generateRandomPost();
-}); */
+});
 
 // Mini Project - random user
 
