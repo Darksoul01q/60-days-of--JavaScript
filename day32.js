@@ -138,7 +138,7 @@ await repeat the same process once again and print D
 //Assignments
 
 //Assignment 1
-
+/* 
 async function getPost() {
   try {
     console.log(`fetching a post...`);
@@ -160,12 +160,12 @@ async function getPost() {
   }
 }
 
-getPost();
+getPost(); */
 
 //fetched a post and handled it
 
 // assignment 2
-
+/* 
 async function user() {
   try {
     console.log(`fetching to get a user...`);
@@ -189,11 +189,11 @@ async function user() {
   }
 }
 
-user();
+user(); */
 
 //Assignment 3
 
-async function posts() {
+/* async function posts() {
   try {
     console.log(`Fetching posts...`);
     const postResponse = await fetch(
@@ -227,4 +227,85 @@ async function posts() {
   }
 }
 
-posts();
+posts(); */
+
+//Assignment 4
+/* let input = document.getElementById("userId");
+let btn = document.getElementById("search");
+let result = document.getElementById("result");
+
+async function postViewer() {
+  result.innerHTML = "";
+  try {
+    const api = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${input.value}`,
+    );
+
+    if (!api.ok) {
+      throw new Error(`User not found`);
+    }
+
+    const apiData = await api.json();
+
+    let div1 = document.createElement("div");
+    let div2 = document.createElement("div");
+    let div3 = document.createElement("div");
+    let divAll = document.createElement("div");
+
+    div1.append(`user : ${apiData.name}`);
+    div2.append(`Email : ${apiData.email}`);
+    div3.append(`CompanyName : ${apiData.company.name}`);
+
+    divAll.append(div1);
+    divAll.append(div2);
+    divAll.append(div3);
+
+    result.append(divAll);
+  } catch (error) {
+    result.textContent = error.message;
+  }
+}
+
+btn.addEventListener("click", () => {
+  postViewer();
+}); */
+
+//Assignment 5
+
+/* let grp = document.getElementById("btn1");
+let box = document.getElementById("box");
+
+async function generateRandomPost() {
+  box.innerHTML = "";
+  try {
+    let random = Math.floor(Math.random() * 99) + 1;
+    let response = await fetch(
+      `https://jsonplaceholder.typicode.com/posts/${random}`,
+    );
+
+    if (!response.ok) {
+      throw new Error("Post not found");
+    }
+
+    let post = await response.json();
+    let div1 = document.createElement("div");
+    let div2 = document.createElement("div");
+    let div3 = document.createElement("div");
+
+    div1.append(`Id : ${post.id}`);
+    div2.append(`Title : ${post.title}`);
+    div3.append(`Body : ${post.body}`);
+
+    box.append(div1);
+    box.append(div2);
+    box.append(div3);
+  } catch (error) {
+    box.textContent = error.message;
+  }
+}
+
+grp.addEventListener("click", () => {
+  generateRandomPost();
+}); */
+
+// Mini Project
