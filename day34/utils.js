@@ -15,7 +15,7 @@ export function isEven(num) {
 }
 
 //Assignment 5
-//
+//utils.js
 
 export function totalPrice(element) {
   let total = 0;

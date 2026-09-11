@@ -14,7 +14,7 @@ export function getDiscountedPrice(num) {
 }
 
 //Assingment 5
-
+//product.js
 export let products = [
   {
     id: 1,
