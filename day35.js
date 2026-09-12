@@ -151,3 +151,115 @@ for (const iteration of generateEvenNumbers()) {
 //challenge 5 done
 
 //Assignments
+
+//Assignment 1
+
+let employee1 = {
+  name: "arun",
+};
+
+let employee2 = {
+  name: "raghul",
+};
+
+let employee3 = {
+  name: "Ram Kumar",
+};
+
+const employeeDepartment = new WeakMap();
+
+employeeDepartment.set(employee1, "Development");
+employeeDepartment.set(employee2, "Testing");
+employeeDepartment.set(employee3, "Deployment");
+
+console.log(employeeDepartment.get(employee1));
+console.log(employeeDepartment.has(employee2));
+
+employeeDepartment.delete(employee2);
+
+console.log(employeeDepartment.has(employee2));
+
+//Assignment 2
+
+let task1 = {
+  state: "completed",
+};
+let task2 = {
+  state: "pending",
+};
+let task3 = {
+  state: "completed",
+};
+let task4 = {
+  state: "intializing",
+};
+let task5 = {
+  state: "completed",
+};
+
+const completedTasks = new WeakSet();
+
+completedTasks.add(task1);
+completedTasks.add(task2);
+completedTasks.add(task3);
+
+console.log(completedTasks.has(task4));
+
+completedTasks.add(task4);
+completedTasks.add(task5);
+
+console.log(completedTasks.has(task4));
+
+completedTasks.delete(task4);
+
+console.log(completedTasks.has(task4));
+console.log(completedTasks.has(task1));
+
+//Assignment 3
+
+let lang = ["JavaScript", "Java", "Python", "C++", "Go"];
+
+let iteration = lang[Symbol.iterator]();
+
+console.log(iteration.next());
+console.log(iteration.next());
+console.log(iteration.next());
+console.log(iteration.next());
+console.log(iteration.next());
+console.log(iteration.next());
+
+//Assignment 4
+
+function* generateNumbers() {
+  yield 10;
+  yield 20;
+  yield 30;
+  yield 40;
+  yield 50;
+  return "Done !";
+}
+
+let printNumbers = generateNumbers();
+
+console.log(printNumbers.next());
+console.log(printNumbers.next());
+console.log(printNumbers.next());
+console.log(printNumbers.next());
+console.log(printNumbers.next());
+console.log(printNumbers.next());
+
+//Assignment 5
+
+function* generateId() {
+  let id = 1001;
+  while (id > 50) {
+    yield id;
+    id++;
+  }
+}
+
+let idGenerator = generateId();
+console.log(idGenerator.next());
+console.log(idGenerator.next());
+console.log(idGenerator.next());
+console.log(idGenerator.next());
