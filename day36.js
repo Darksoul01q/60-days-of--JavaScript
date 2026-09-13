@@ -52,3 +52,13 @@ console.log(psCheck.test("jsRock1"));
 console.log(psCheck.test("javascript2026"));
 console.log(psCheck.test("JAVASCRIPT2026"));
 console.log(psCheck.test("Code 2026"));
+
+//Assignment 1
+console.log("Assignment 1");
+const emailCheck = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+console.log(emailCheck.test("user@example.com"));
+console.log(emailCheck.test("user.name@mail.org"));
+console.log(emailCheck.test("user@com"));
+console.log(emailCheck.test("user@domain.c"));
+console.log(emailCheck.test("user @domain.com"));
