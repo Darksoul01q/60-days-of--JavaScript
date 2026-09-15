@@ -170,3 +170,34 @@ console.log(JSON.parse(localStorage.getItem("notes")));
 //Assignment 5
 
 console.log("Assignment 5");
+const frameworks = ["React", "Vue", "Angular", "Next.js", "Svelte"];
+const student = {
+  studentname: "Alex Carter",
+  rollNo: 104,
+  location: "New York",
+  class: "10th Grade",
+};
+
+function saveData(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
+function getData(key) {
+  let data = JSON.parse(localStorage.getItem(key));
+  return data;
+}
+
+function removeData(key) {
+  localStorage.removeItem(key);
+}
+
+function clearData() {
+  localStorage.clear();
+}
+
+saveData("mobile", "vivo");
+saveData("frameworks", frameworks);
+saveData("student", student);
+console.log(getData("mobile"));
+console.log(getData("frameworks"));
+console.log(getData("student"));
