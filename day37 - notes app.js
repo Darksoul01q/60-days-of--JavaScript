@@ -1,31 +1,69 @@
-let title = document.getElementById("title");
-let notes = document.getElementById("notes");
+let titleInput = document.getElementById("title");
+let notesInput = document.getElementById("notes");
 let addNotesBtn = document.getElementById("addnotes");
 let screen = document.getElementById("containerBlock");
-let deleteBtn = document.getElementById("delete");
 
-let notebd = [];
-let keyValue = title.value;
-let notesValue = notes.value;
+let notebd = JSON.parse(localStorage.getItem("notes")) || [];
 
-function load() {
-  let temp = { heading: keyValue, content: notesValue };
-  notebd.push(temp);
-  localStorage.setItem("notes", JSON.stringify(notebd));
-  let retrive = JSON.parse(localStorage.getItem("notes"));
-  retrive.forEach((retrive) => {
-    let block1 = document.createElement("div");
+renderNotes();
+
+function renderNotes() {
+  screen.innerHTML = "";
+
+  if (notebd.length === 0) {
+    screen.innerHTML = "<p>No notes yet.</p>";
+    return;
+  }
+
+  notebd.forEach((note) => {
+    let block = document.createElement("div");
+    block.className = "note-card";
+
     let h = document.createElement("h4");
+    h.textContent = note.title;
+
     let p = document.createElement("p");
-    h.textContent = `${retrive.heading}`;
-    p.textContent = `${retrive.content}`;
-    block1.append(h);
-    block1.append(p);
-    screen.append(block1);
+    p.textContent = note.content;
+
+    let deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+
+    deleteBtn.addEventListener("click", () => {
+      deleteNote(note.id);
+    });
+
+    block.append(h);
+    block.append(p);
+    block.append(deleteBtn);
+    screen.append(block);
   });
 }
 
 addNotesBtn.addEventListener("click", (event) => {
   event.preventDefault();
-  load();
+
+  let currentTitle = titleInput.value.trim();
+  let currentContent = notesInput.value.trim();
+
+  if (currentTitle === "" || currentContent === "") return;
+
+  let newNote = {
+    id: Date.now(),
+    title: currentTitle,
+    content: currentContent,
+  };
+
+  notebd.push(newNote);
+  localStorage.setItem("notes", JSON.stringify(notebd));
+
+  renderNotes();
+  titleInput.value = "";
+  notesInput.value = "";
 });
+
+function deleteNote(idToRemove) {
+  notebd = notebd.filter((note) => note.id !== idToRemove);
+
+  localStorage.setItem("notes", JSON.stringify(notebd));
+  renderNotes();
+}
