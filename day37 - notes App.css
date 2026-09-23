@@ -1,0 +1,175 @@
+/* ==========================================
+   1. GLOBAL STYLES & RESET
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f4f7f6;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#heading {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+/* ==========================================
+   2. APP LAYOUT CONTAINER
+   ========================================== */
+#containerform, #containerScreen {
+  width: 100%;
+  max-width: 500px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+}
+
+/* ==========================================
+   3. FORM & INPUTS STYLING
+   ========================================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  font-weight: 600;
+  color: #34495e;
+  font-size: 0.95rem;
+  margin-top: 5px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+input[type="text"]:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Base button animations */
+button {
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+#addnotes {
+  background-color: #2ecc71;
+  color: white;
+  padding: 14px;
+  margin-top: 10px;
+}
+
+#addnotes:hover {
+  background-color: #27ae60;
+  transform: translateY(-1px);
+}
+
+#addnotes:active {
+  transform: translateY(1px);
+}
+
+/* ==========================================
+   4. NOTES OUTPUT DISPLAY AREA
+   ========================================== */
+#subheading {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  border-bottom: 2px solid #ecf0f1;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Fallback message style when length === 0 */
+#containerBlock p {
+  color: #7f8c8d;
+  text-align: center;
+  font-style: italic;
+  margin: 20px 0;
+}
+
+/* 🌟 Dynamic Generated Cards (Injected by JS) */
+.note-card {
+  background: #fdfefe;
+  border-left: 5px solid #3498db;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.note-card h4 {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  word-break: break-word;
+}
+
+.note-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+/* Note Card Delete Button Layout */
+.note-card button {
+  background-color: #e74c3c;
+  color: white;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  align-self: flex-end; /* Pushes the button cleanly to the bottom right corner */
+  margin-top: 5px;
+}
+
+.note-card button:hover {
+  background-color: #c0392b;
+}
+
+/* ==========================================
+   5. DECORATIONS & EFFECTS
+   ========================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
